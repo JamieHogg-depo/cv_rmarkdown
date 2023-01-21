@@ -1,69 +1,127 @@
 ---
-name: Jamie
-surname: Hogg
+name: James Hogg
+#surname: Hogg
 position: "PhD Student"
-address: "School of Mathematical Sciences, QUT"
-# profilepic: "img/jamie.jpeg"
-phone: +1 22 3333 4444
-email: "Marie.Curie@ens.fr"
-twitter: mariecurie
-github: mariecurie
-linkedin: mariecurie
+address: "School of Mathematical Sciences, Queensland University of Technology"
+profilepic: "C:/r_proj/cv_rmarkdown/img/IMG_0667-min.jpg"
+phone: 0450592789
+email: "james.hogg@hdr.qut.edu.au"
+twitter: JamieAHogg
+github: JamieHogg-depo
+linkedin: jamieahogg
 date: "`r format(Sys.time(), '%B %Y')`"
-output: 
+aboutme: "I am a current PhD student in the School of Mathematical Sciences at the Queensland University of Technology (QUT) under the supervision of Distinguished Professor Kerrie Mengersen, Dr Susanna Cramb, Professor Peter Baade and Dr Jessica Cameron. My PhD work is funded by the internationally-awarded Australian Cancer Atlas, where my role is to develop Bayesian methodology to generate small area level cancer risk factor estimates."
+headcolor: 414141
+output:
   vitae::awesomecv:
     page_total: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
+library(readxl)
+
+readExcelSheets <- function(filename){
+  # read all sheets in .xlsx 
+  all <- readxl::excel_sheets(filename)
+  # import each sheet into a list using readxl::read_excel
+  list <- lapply(all, function(x) readxl::read_excel(filename, sheet = x))
+  # save sheet name for each sheet (list)
+  names(list) <- all
+  # breaks up list and creates a dataframe for each sheet with df names matching sheet names
+  list2env(list, envir = .GlobalEnv)
+}
+
+readExcelSheets("JH_data.xlsx")
 ```
 
-# Some stuff about me
-
- * I poisoned myself doing research.
- * I was the first woman to win a Nobel prize
- * I was the first person and only woman to win a Nobel prize in two different sciences.
-
-# Education
+# Research interests
 
 ```{r}
-library(tibble)
-tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Bachelor of Music", "1889-91", "Queensland University of Technology", "Queensland, Australia",
-  "Master of Biostatistics", "2018-2020", "University of Queensland", "Queensland, Australia",
-  "PhD. Candidate", "1894", "Queensland University of Technology", "Queensland, Australia"
-) %>% 
-  detailed_entries(with = Degree, 
-                   when = Year, 
-                   what = Institution, 
-                   where = Where)
+interests %>% 
+  brief_entries(what = points) 
 ```
 
-# Nobel Prizes
+# Education and qualifications
 
 ```{r}
-tribble(
-  ~Year, ~Type, ~Desc,
-  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
-  1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
-  brief_entries(
-    glue::glue("Nobel Prize in {Type}"),
-    Year, 
-    Desc
-  )
+education %>% 
+  detailed_entries(with = degree, # this is bold 
+                   when = year, 
+                   what = institution, 
+                   where = where,
+                   why = details) # dot points
 ```
 
-# Publications
+# Experience 
 
 ```{r}
-library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
-
-bibliography_entries("packages.bib") %>%
-  arrange(desc(author$family), issued)
+experience %>% 
+  detailed_entries(with = role, # this is bold 
+                   when = dates, 
+                   what = institution, 
+                   where = where,
+                   why = details) # dot points
 ```
+
+# Selected research presentations
+
+```{r}
+presentations %>% 
+  # select some talks
+  slice(-c(1,2,11)) %>% 
+  # add title to each
+  mutate(title = paste0("Title: ", title)) %>% 
+  detailed_entries(with = what, # this is bold 
+                   when = date, 
+                   what = conference, 
+                   where = where,
+                   why = title) # dot points
+```
+
+# Awards
+
+```{r}
+awards %>% 
+  detailed_entries(with = award, # this is bold 
+                   when = when, 
+                   what = conference_event) 
+```
+
+# Professional memberships
+
+```{r}
+membership %>% 
+  brief_entries(what = notes) 
+```
+
+# Software
+
+```{r}
+software %>% 
+  brief_entries(what = notes) 
+```
+
+# Referees
+
+```{r}
+referees %>% 
+  detailed_entries(with = name, # this is bold 
+                   where = institution,
+                   what = position, 
+                   why = details)
+```
+
+<!-- # Publications -->
+
+<!-- ```{r} -->
+<!-- library(dplyr) -->
+<!-- knitr::write_bib(c("vitae", "tibble"), "packages.bib") -->
+
+<!-- bibliography_entries("packages.bib") %>% -->
+<!--   arrange(desc(author$family), issued) -->
+<!-- ``` -->
 
