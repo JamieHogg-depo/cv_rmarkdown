@@ -10,7 +10,7 @@ twitter: JamieAHogg
 github: JamieHogg-depo
 linkedin: jamieahogg
 date: "`r format(Sys.time(), '%B %Y')`"
-aboutme: "I am a current PhD student in the School of Mathematical Sciences at the Queensland University of Technology (QUT) under the supervision of Distinguished Professor Kerrie Mengersen, Dr Susanna Cramb, Professor Peter Baade and Dr Jessica Cameron. My PhD work is funded by the internationally-awarded Australian Cancer Atlas, where my role is to develop Bayesian methodology to generate small area level cancer risk factor estimates."
+aboutme: "I am a current PhD student in the School of Mathematical Sciences at the Queensland University of Technology (QUT) under the supervision of Distinguished Professor Kerrie Mengersen, Dr Susanna Cramb, Professor Peter Baade and Dr Jessica Cameron. My PhD work is funded by the internationally-awarded Australian Cancer Atlas, where my role is to develop Bayesian methodology to generate small area level cancer risk factor estimates. I am passionate about accessible research, Bayesian inference, and spatial modelling, and am dedicated to making a positive impact in the field of cancer research."
 headcolor: 414141
 output:
   vitae::awesomecv:
@@ -35,7 +35,7 @@ readExcelSheets <- function(filename){
   list2env(list, envir = .GlobalEnv)
 }
 
-readExcelSheets("JH_data.xlsx")
+readExcelSheets("C:/r_proj/cv_rmarkdown/JH_data.xlsx")
 ```
 
 # Research interests
@@ -59,12 +59,23 @@ education %>%
 # Experience 
 
 ```{r}
-experience %>% 
-  detailed_entries(with = role, # this is bold 
-                   when = dates, 
-                   what = institution, 
+# tibble::tribble(
+#   ~what,
+#   "Course title: Categorical Data and Generalised Linear Models (STAT7608)
+# "
+# ) %>%
+#   detailed_entries(
+#     what = what,
+#     .protect = FALSE
+#   )
+
+experience %>%
+  detailed_entries(with = role, # this is bold
+                   when = dates,
+                   what = institution,
                    where = where,
-                   why = details) # dot points
+                   why = details, # dot points
+                   .protect = T)
 ```
 
 # Selected research presentations
