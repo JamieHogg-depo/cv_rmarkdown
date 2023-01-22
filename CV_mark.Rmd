@@ -14,7 +14,7 @@ aboutme: "I am a current PhD student in the School of Mathematical Sciences at t
 headcolor: 414141
 output:
   vitae::awesomecv:
-    page_total: true
+  page_total: true
 editor_options: 
   chunk_output_type: console
 ---
