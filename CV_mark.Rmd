@@ -4,7 +4,7 @@ name: James Hogg
 position: "PhD Student"
 address: "School of Mathematical Sciences, Queensland University of Technology"
 profilepic: "C:/r_proj/cv_rmarkdown/img/IMG_0667-min.jpg"
-phone: 0450592789
+#phone:
 email: "james.hogg@hdr.qut.edu.au"
 twitter: JamieAHogg
 github: JamieHogg-depo
