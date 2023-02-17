@@ -38,12 +38,12 @@ readExcelSheets <- function(filename){
 readExcelSheets("C:/r_proj/cv_rmarkdown/JH_data.xlsx")
 ```
 
-# Research interests
+<!-- # Research interests -->
 
-```{r}
-interests %>% 
-  brief_entries(what = points) 
-```
+<!-- ```{r} -->
+<!-- interests %>%  -->
+<!--   brief_entries(what = points)  -->
+<!-- ``` -->
 
 # Education and qualifications
 
@@ -102,29 +102,29 @@ awards %>%
                    what = conference_event) 
 ```
 
-# Professional memberships
+<!-- # Professional memberships -->
 
-```{r}
-membership %>% 
-  brief_entries(what = notes) 
-```
+<!-- ```{r} -->
+<!-- membership %>%  -->
+<!--   brief_entries(what = notes)  -->
+<!-- ``` -->
 
-# Software
+<!-- # Software -->
 
-```{r}
-software %>% 
-  brief_entries(what = notes) 
-```
+<!-- ```{r} -->
+<!-- software %>% -->
+<!--   brief_entries(what = notes) -->
+<!-- ``` -->
 
-# Referees
+<!-- # Referees -->
 
-```{r}
-referees %>% 
-  detailed_entries(with = name, # this is bold 
-                   where = institution,
-                   what = position, 
-                   why = details)
-```
+<!-- ```{r} -->
+<!-- referees %>% -->
+<!--   detailed_entries(with = name, # this is bold -->
+<!--                    where = institution, -->
+<!--                    what = position, -->
+<!--                    why = details) -->
+<!-- ``` -->
 
 <!-- # Publications -->
 
