@@ -10,7 +10,7 @@ twitter: JamieAHogg
 github: JamieHogg-depo
 linkedin: jamieahogg
 date: "`r format(Sys.time(), '%B %Y')`"
-aboutme: "I am a current PhD student in the School of Mathematical Sciences at the Queensland University of Technology (QUT) under the supervision of Distinguished Professor Kerrie Mengersen, Dr Susanna Cramb, Professor Peter Baade and Dr Jessica Cameron. My PhD work is funded by the internationally-awarded Australian Cancer Atlas, where my role is to develop Bayesian methodology to generate small area level cancer risk factor estimates. I am passionate about accessible research, Bayesian inference, and spatial modelling, and am dedicated to making a positive impact in the field of cancer research."
+aboutme: "I am a statistician currently studying for a PhD in the School of Mathematical Sciences at the Queensland University of Technology (QUT). Focused on generating small area level estimates of cancer risk factors for the globally recognized Australian Cancer Atlas, my research is driven by a passion for making research more accessible, as well as a commitment to utilizing Bayesian inference and spatial modeling to enhance the field of cancer research. My teaching experience, together with the awards I've received for presentations and invited talks, attest to my proficiency in conveying complex statistical ideas to a wide audience. With my dedication to advancing the field of cancer research and a deep-seated enthusiasm for exploring the potential of Bayesian inference and spatial modeling, I am poised to make a significant contribution to either academic or industry roles."
 headcolor: 414141
 output:
   vitae::awesomecv:
@@ -38,12 +38,12 @@ readExcelSheets <- function(filename){
 readExcelSheets("C:/r_proj/cv_rmarkdown/JH_data.xlsx")
 ```
 
-<!-- # Research interests -->
+# Research interests
 
-<!-- ```{r} -->
-<!-- interests %>%  -->
-<!--   brief_entries(what = points)  -->
-<!-- ``` -->
+```{r}
+interests %>%
+  brief_entries(what = points)
+```
 
 # Education and qualifications
 
@@ -56,20 +56,22 @@ education %>%
                    why = details) # dot points
 ```
 
-# Experience 
+# Employment 
 
 ```{r}
-# tibble::tribble(
-#   ~what,
-#   "Course title: Categorical Data and Generalised Linear Models (STAT7608)
-# "
-# ) %>%
-#   detailed_entries(
-#     what = what,
-#     .protect = FALSE
-#   )
+employment %>%
+  detailed_entries(with = role, # this is bold
+                   when = dates,
+                   what = institution,
+                   where = where,
+                   why = details, # dot points
+                   .protect = T)
+```
 
-experience %>%
+# Professional service 
+
+```{r}
+professional_service %>%
   detailed_entries(with = role, # this is bold
                    when = dates,
                    what = institution,
@@ -99,22 +101,23 @@ presentations %>%
 awards %>% 
   detailed_entries(with = award, # this is bold 
                    when = when, 
-                   what = conference_event) 
+                   what = conference_event,
+                   why = details) 
 ```
 
-<!-- # Professional memberships -->
+# Professional memberships
 
-<!-- ```{r} -->
-<!-- membership %>%  -->
-<!--   brief_entries(what = notes)  -->
-<!-- ``` -->
+```{r}
+membership %>%
+  brief_entries(what = notes)
+```
 
-<!-- # Software -->
+# Software
 
-<!-- ```{r} -->
-<!-- software %>% -->
-<!--   brief_entries(what = notes) -->
-<!-- ``` -->
+```{r}
+software %>%
+  brief_entries(what = notes)
+```
 
 <!-- # Referees -->
 
