@@ -85,7 +85,7 @@ professional_service %>%
 ```{r}
 presentations %>% 
   # select some talks
-  slice(-c(1,2,11)) %>% 
+  filter(include == 1) %>% 
   # add title to each
   mutate(title = paste0("Title: ", title)) %>% 
   detailed_entries(with = what, # this is bold 
@@ -116,7 +116,7 @@ membership %>%
 
 ```{r}
 software %>%
-  brief_entries(what = notes)
+  brief_entries(what = paste0(what, ": ", notes))
 ```
 
 <!-- # Referees -->
