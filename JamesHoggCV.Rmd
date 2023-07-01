@@ -95,6 +95,17 @@ presentations %>%
                    why = title) # dot points
 ```
 
+# Selected publications
+
+```{r}
+papers %>% 
+  mutate(authors = paste0("\\", authors),
+         journal_year = paste0("\\", journal_year)) %>% 
+  detailed_entries(with = journal_year, # this is bold 
+                   what = authors,
+                   why = title, .protect = FALSE) 
+```
+
 # Awards
 
 ```{r}
