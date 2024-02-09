@@ -3,7 +3,8 @@ name: James Hogg
 #surname: Hogg
 position: "PhD Student"
 address: "School of Mathematical Sciences, Queensland University of Technology"
-profilepic: "C:/r_proj/cv_rmarkdown/img/IMG_0667-min.jpg"
+# profilepic: "C:/r_proj/cv_rmarkdown/img/IMG_0667-min.jpg"
+# profilepic: "C:/r_proj/cv_rmarkdown/img/profile2.jpg"
 #phone:
 email: "james.hogg@hdr.qut.edu.au"
 twitter: JamieAHogg
@@ -38,23 +39,12 @@ readExcelSheets <- function(filename){
 readExcelSheets("C:/r_proj/cv_rmarkdown/JH_data.xlsx")
 ```
 
-# Research interests
+<!-- # Research interests -->
 
-```{r}
-interests %>%
-  brief_entries(what = points)
-```
-
-# Education and qualifications
-
-```{r}
-education %>% 
-  detailed_entries(with = degree, # this is bold 
-                   when = year, 
-                   what = institution, 
-                   where = where,
-                   why = details) # dot points
-```
+<!-- ```{r} -->
+<!-- interests %>% -->
+<!--   brief_entries(what = points) -->
+<!-- ``` -->
 
 # Employment 
 
@@ -66,6 +56,17 @@ employment %>%
                    where = where,
                    why = details, # dot points
                    .protect = T)
+```
+
+# Education and qualifications
+
+```{r}
+education %>% 
+  detailed_entries(with = degree, # this is bold 
+                   when = year, 
+                   what = institution, 
+                   where = where,
+                   why = details) # dot points
 ```
 
 # Professional service 
@@ -99,6 +100,8 @@ presentations %>%
 
 ```{r}
 papers %>% 
+  # select some talks
+  filter(include == 1) %>% 
   mutate(authors = paste0("\\", authors),
          journal_year = paste0("\\", journal_year)) %>% 
   detailed_entries(with = journal_year, # this is bold 
