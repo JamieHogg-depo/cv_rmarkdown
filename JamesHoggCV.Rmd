@@ -6,7 +6,7 @@ address: "School of Mathematical Sciences, Queensland University of Technology"
 # profilepic: "C:/r_proj/cv_rmarkdown/img/IMG_0667-min.jpg"
 # profilepic: "C:/r_proj/cv_rmarkdown/img/profile2.jpg"
 #phone:
-email: "james.hogg@hdr.qut.edu.au"
+email: "jamie-hogg@hotmail.com"
 twitter: JamieAHogg
 github: JamieHogg-depo
 linkedin: jamieahogg
@@ -84,14 +84,14 @@ professional_service %>%
 # Selected research presentations
 
 ```{r}
-presentations %>% 
+presentations %>%
   # select some talks
-  filter(include == 1) %>% 
+  filter(include == 1) %>%
   # add title to each
-  mutate(title = paste0("Title: ", title)) %>% 
-  detailed_entries(with = what, # this is bold 
-                   when = date, 
-                   what = conference, 
+  mutate(title = paste0("Title: ", title)) %>%
+  detailed_entries(with = what, # this is bold
+                   when = date,
+                   what = conference,
                    where = where,
                    why = title) # dot points
 ```
@@ -99,14 +99,14 @@ presentations %>%
 # Selected publications
 
 ```{r}
-papers %>% 
+papers %>%
   # select some talks
-  filter(include == 1) %>% 
+  filter(include == 1) %>%
   mutate(authors = paste0("\\", authors),
-         journal_year = paste0("\\", journal_year)) %>% 
-  detailed_entries(with = journal_year, # this is bold 
+         journal_year = paste0("\\", journal_year)) %>%
+  detailed_entries(with = journal_year, # this is bold
                    what = authors,
-                   why = title, .protect = FALSE) 
+                   why = title, .protect = FALSE)
 ```
 
 # Awards
