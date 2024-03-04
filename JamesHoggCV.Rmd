@@ -129,7 +129,8 @@ membership %>%
 # Software
 
 ```{r}
-software %>%
+software %>%  
+  filter(include == 1) %>%
   brief_entries(what = paste0(what, ": ", notes))
 ```
 
